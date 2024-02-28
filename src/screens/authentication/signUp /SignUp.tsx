@@ -1,16 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { auth } from 'config/firebase';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
-import { Screens } from '@navigation/index';
 
-export default function LoginScreen({ navigation }) {
-  useEffect(() => {}, []);
+export default function SignUpScreen() {
   const image_Background = require('@assets/Image/Background_Image.png');
 
   const [valueEmail, setValueEmail] = useState('');
@@ -23,19 +18,22 @@ export default function LoginScreen({ navigation }) {
     setValuePassword(value);
   };
 
-  const handleSubmitLogin = useCallback(async () => {
+  const handleSubmitCreateAccount = useCallback(async () => {
     if (valueEmail && valuePassword) {
       try {
-        await signInWithEmailAndPassword(auth, valueEmail, valuePassword);
+        const response = await createUserWithEmailAndPassword(
+          auth,
+          valueEmail,
+          valuePassword,
+        );
+
+        if (response) {
+        }
       } catch (error) {
         console.log('error:>>>>', error);
       }
     }
   }, [valueEmail, valuePassword]);
-
-  const handleCreateAccount = () => {
-    navigation.navigate(Screens.SignUp);
-  };
 
   return (
     <BackGroundImage source={image_Background} resizeMode="cover">
@@ -43,8 +41,11 @@ export default function LoginScreen({ navigation }) {
         <Container>
           <HeaderLogin>
             <HeaderLeft>
-              <TitleLeft>Login Account </TitleLeft>
-              <TextLeft>Welcome back Rohit thakur !</TextLeft>
+              <AntDesign name={'left'} size={30} />
+              <ViewLeft>
+                <TitleLeft>Sign Up Account </TitleLeft>
+                <TextLeft>Welcome back Rohit thakur !</TextLeft>
+              </ViewLeft>
             </HeaderLeft>
           </HeaderLogin>
           <ViewTextLogoApp>
@@ -69,13 +70,13 @@ export default function LoginScreen({ navigation }) {
             <TextForgotPassword>{'Forget Password?'}</TextForgotPassword>
           </ButtonForgotPassword>
           <ButtonView>
-            <ButtonTouch onPress={handleSubmitLogin}>
-              <ButtonText>{'Login'}</ButtonText>
+            <ButtonTouch onPress={handleSubmitCreateAccount}>
+              <ButtonText>{'Sign Up'}</ButtonText>
             </ButtonTouch>
           </ButtonView>
           <ViewQuestion>
             <LineHorizoltal />
-            <TextQuestion>{'Or sign in with'}</TextQuestion>
+            <TextQuestion>{'Or sign up with'}</TextQuestion>
             <LineHorizoltal />
           </ViewQuestion>
           <ViewIconSocial>
@@ -86,12 +87,6 @@ export default function LoginScreen({ navigation }) {
               <AntDesign color={'blue'} name="facebook-square" size={30} />
             </IconTouch>
           </ViewIconSocial>
-          <ViewQuestionSignUp>
-            <TextQuestionSignUp>{'Not register yet ?'}</TextQuestionSignUp>
-            <ButtonCreateAccount onPress={handleCreateAccount}>
-              <TextCreateAccount>{'Create Account '}</TextCreateAccount>
-            </ButtonCreateAccount>
-          </ViewQuestionSignUp>
         </Container>
       </SafeAreaView>
     </BackGroundImage>
@@ -111,8 +106,12 @@ const BackGroundImage = styled.ImageBackground`
 
 const HeaderLogin = styled.View`
   padding-left: 20px;
+  margin-top: 20px;
 `;
 const HeaderLeft = styled.View``;
+const ViewLeft = styled.View`
+  margin-top: 10px;
+`;
 const TitleLeft = styled.Text`
   font-size: 20px;
   font-weight: bold;
@@ -198,18 +197,4 @@ const IconTouch = styled.TouchableOpacity`
   align-items: center;
   margin: 0px 10px;
   border-radius: 8px;
-`;
-
-const ViewQuestionSignUp = styled.View`
-  padding: 0px 20px;
-  flex-direction: row;
-  margin-top: 20px;
-  justify-content: center;
-`;
-const TextQuestionSignUp = styled.Text``;
-const ButtonCreateAccount = styled.TouchableOpacity``;
-
-const TextCreateAccount = styled.Text`
-  font-weight: 600;
-  margin-left: 5px;
 `;
