@@ -1,32 +1,21 @@
 import React from 'react';
 
 import { Screens } from '@navigation/index';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '@screens/Home/Home';
-import useAuth from 'hook/useAuth';
 
-import AuthenticationStack from './AuthenticationStack';
+import MainTabBar from './MainTabBar';
 
 const Stack = createStackNavigator();
 
-export default function MainStack() {
-  const { user } = useAuth();
-  if (!user) {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name={Screens.Login} component={AuthenticationStack} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  } else {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name={Screens.Home} component={Home} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
+export default function AppStack() {
+  return (
+    <Stack.Navigator initialRouteName={Screens.Home}>
+      <Stack.Screen
+        name={Screens.AppStack}
+        component={MainTabBar}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
 }

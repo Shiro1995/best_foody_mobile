@@ -1,15 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { Screens } from '@navigation/index';
 import { auth } from 'config/firebase';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
-import { Screens } from '@navigation/index';
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen({ navigation }: any) {
   useEffect(() => {}, []);
   const image_Background = require('@assets/Image/Background_Image.png');
 
@@ -44,7 +41,7 @@ export default function LoginScreen({ navigation }) {
           <HeaderLogin>
             <HeaderLeft>
               <TitleLeft>Login Account </TitleLeft>
-              <TextLeft>Welcome back Rohit thakur !</TextLeft>
+              <TextLeft>Welcome</TextLeft>
             </HeaderLeft>
           </HeaderLogin>
           <ViewTextLogoApp>
@@ -55,7 +52,7 @@ export default function LoginScreen({ navigation }) {
           </ViewTextLogoApp>
           <ViewInput>
             <InputField
-              placeholder={"Enter email i'd"}
+              placeholder={'email'}
               value={valueEmail}
               onChangeText={e => handleOnChangeTextEmail(e)}
             />
