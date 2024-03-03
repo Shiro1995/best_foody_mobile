@@ -56,7 +56,7 @@ export default function SignUpScreen() {
           </ViewTextLogoApp>
           <ViewInput>
             <InputField
-              placeholder={"Enter email i'd"}
+              placeholder={'email'}
               value={valueEmail}
               onChangeText={e => handleOnChangeTextEmail(e)}
             />
