@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
 
-export default function SignUpScreen() {
+export default function SignUpScreen({ navigation }) {
   const image_Background = require('@assets/Image/Background_Image.png');
 
   const [valueEmail, setValueEmail] = useState('');
@@ -21,16 +21,9 @@ export default function SignUpScreen() {
   const handleSubmitCreateAccount = useCallback(async () => {
     if (valueEmail && valuePassword) {
       try {
-        const response = await createUserWithEmailAndPassword(
-          auth,
-          valueEmail,
-          valuePassword,
-        );
-
-        if (response) {
-        }
+        await createUserWithEmailAndPassword(auth, valueEmail, valuePassword);
       } catch (error) {
-        console.log('error:>>>>', error);
+        console.log(error);
       }
     }
   }, [valueEmail, valuePassword]);
@@ -41,7 +34,12 @@ export default function SignUpScreen() {
         <Container>
           <HeaderLogin>
             <HeaderLeft>
-              <AntDesign name={'left'} size={30} />
+              <ButtonBack
+                onPress={() => {
+                  navigation.goBack();
+                }}>
+                <AntDesign name={'left'} size={30} />
+              </ButtonBack>
               <ViewLeft>
                 <TitleLeft>Sign Up Account </TitleLeft>
                 <TextLeft>Welcome back Rohit thakur !</TextLeft>
@@ -198,3 +196,5 @@ const IconTouch = styled.TouchableOpacity`
   margin: 0px 10px;
   border-radius: 8px;
 `;
+
+const ButtonBack = styled.TouchableOpacity``;
