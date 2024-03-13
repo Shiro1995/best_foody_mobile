@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* best_foody_mobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* best_foody_mobileTests.m */; };
 		04133CC92B8B331900DFD440 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 04133CC82B8B331800DFD440 /* fonts */; };
-		0499DA282B959F7E008AB98D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0499DA272B959F7E008AB98D /* GoogleService-Info.plist */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		797537862BA0C6C90010BFA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 797537852BA0C6C90010BFA8 /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		92D10ACC0F531A7A60D5428C /* Pods_best_foody_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7920BFCD1736E9E660FD5D1E /* Pods_best_foody_mobile.framework */; };
 		B87F858D63728937E7E8B003 /* Pods_best_foody_mobile_best_foody_mobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AF9E6A178E8913E66A6E7F /* Pods_best_foody_mobile_best_foody_mobileTests.framework */; };
@@ -33,7 +33,6 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* best_foody_mobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = best_foody_mobileTests.m; sourceTree = "<group>"; };
 		04133CC82B8B331800DFD440 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		0499DA272B959F7E008AB98D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		08764661B0935141A07ADAD0 /* Pods-best_foody_mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-best_foody_mobile.release.xcconfig"; path = "Target Support Files/Pods-best_foody_mobile/Pods-best_foody_mobile.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* best_foody_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = best_foody_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = best_foody_mobile/AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		3CCDC3CBCD7172297EDE8650 /* Pods-best_foody_mobile-best_foody_mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-best_foody_mobile-best_foody_mobileTests.release.xcconfig"; path = "Target Support Files/Pods-best_foody_mobile-best_foody_mobileTests/Pods-best_foody_mobile-best_foody_mobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		7919A7BB77DD0E3B12F3CF42 /* Pods-best_foody_mobile-best_foody_mobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-best_foody_mobile-best_foody_mobileTests.debug.xcconfig"; path = "Target Support Files/Pods-best_foody_mobile-best_foody_mobileTests/Pods-best_foody_mobile-best_foody_mobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7920BFCD1736E9E660FD5D1E /* Pods_best_foody_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_best_foody_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		797537852BA0C6C90010BFA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = best_foody_mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D57499762E915524A0AD36E /* Pods-best_foody_mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-best_foody_mobile.debug.xcconfig"; path = "Target Support Files/Pods-best_foody_mobile/Pods-best_foody_mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		D5AF9E6A178E8913E66A6E7F /* Pods_best_foody_mobile_best_foody_mobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_best_foody_mobile_best_foody_mobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +120,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				0499DA272B959F7E008AB98D /* GoogleService-Info.plist */,
+				797537852BA0C6C90010BFA8 /* GoogleService-Info.plist */,
 				04133CC82B8B331800DFD440 /* fonts */,
 				13B07FAE1A68108700A75B9A /* best_foody_mobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -250,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04133CC92B8B331900DFD440 /* fonts in Resources */,
-				0499DA282B959F7E008AB98D /* GoogleService-Info.plist in Resources */,
+				797537862BA0C6C90010BFA8 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

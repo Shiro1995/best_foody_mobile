@@ -1,14 +1,15 @@
 import React, { memo } from 'react';
 
-import { auth } from 'config/firebase';
-import { signOut } from 'firebase/auth';
 import { Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
+import auth from '@react-native-firebase/auth';
 
 const Home = () => {
   const handleLogout = async () => {
     try {
-      await signOut(auth);
+      auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
     } catch (error) {}
   };
   return (

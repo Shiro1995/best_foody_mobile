@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { Screens } from '@navigation/index';
-import { auth } from 'config/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
+import { signInUserWithEmailAndPassword } from '@utils/api';
 
 export default function LoginScreen({ navigation }: any) {
   useEffect(() => {}, []);
@@ -20,19 +19,16 @@ export default function LoginScreen({ navigation }: any) {
     setValuePassword(value);
   };
 
-  const handleSubmitLogin = useCallback(async () => {
+  const handleSubmitLogin = useCallback(() => {
     if (valueEmail && valuePassword) {
-      try {
-        await signInWithEmailAndPassword(auth, valueEmail, valuePassword);
-      } catch (error) {
-        console.log('error:>>>>', error);
-      }
+      signInUserWithEmailAndPassword(valueEmail, valuePassword)
     }
   }, [valueEmail, valuePassword]);
 
   const handleCreateAccount = () => {
     navigation.navigate(Screens.SignUp);
   };
+  
 
   return (
     <BackGroundImage source={image_Background} resizeMode="cover">
@@ -59,6 +55,7 @@ export default function LoginScreen({ navigation }: any) {
             <InputField
               placeholder={'Password'}
               value={valuePassword}
+              secureTextEntry
               onChangeText={e => handleOnChangeTextPassword(e)}
             />
           </ViewInput>
