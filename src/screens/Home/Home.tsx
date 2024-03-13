@@ -18,7 +18,9 @@ import styled from 'styled-components/native';
 const Home = () => {
   const handleLogout = async () => {
     try {
-      await signOut(auth);
+      auth()
+        .signOut()
+        .then(() => console.log('User signed out!'));
     } catch (error) {}
   };
   const dispatch = useDispatch();

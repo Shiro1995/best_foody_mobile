@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from 'react';
 
-import { auth } from 'config/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
+import { signUpUserWithEmailAndPassword } from '@utils/api';
 
-export default function SignUpScreen() {
+export default function SignUpScreen({ navigation }: any) {
   const image_Background = require('@assets/Image/Background_Image.png');
 
   const [valueEmail, setValueEmail] = useState('');
@@ -18,20 +17,9 @@ export default function SignUpScreen() {
     setValuePassword(value);
   };
 
-  const handleSubmitCreateAccount = useCallback(async () => {
+  const handleSubmitCreateAccount = useCallback(() => {
     if (valueEmail && valuePassword) {
-      try {
-        const response = await createUserWithEmailAndPassword(
-          auth,
-          valueEmail,
-          valuePassword,
-        );
-
-        if (response) {
-        }
-      } catch (error) {
-        console.log('error:>>>>', error);
-      }
+      signUpUserWithEmailAndPassword(valueEmail, valuePassword);
     }
   }, [valueEmail, valuePassword]);
 
@@ -41,10 +29,15 @@ export default function SignUpScreen() {
         <Container>
           <HeaderLogin>
             <HeaderLeft>
-              <AntDesign name={'left'} size={30} />
+              <ButtonBack
+                onPress={() => {
+                  navigation.goBack();
+                }}>
+                <AntDesign name={'left'} size={30} />
+              </ButtonBack>
               <ViewLeft>
                 <TitleLeft>Sign Up Account </TitleLeft>
-                <TextLeft>Welcome back Rohit thakur !</TextLeft>
+                <TextLeft>Welcome Duong Pham !</TextLeft>
               </ViewLeft>
             </HeaderLeft>
           </HeaderLogin>
@@ -63,6 +56,7 @@ export default function SignUpScreen() {
             <InputField
               placeholder={'Password'}
               value={valuePassword}
+              secureTextEntry
               onChangeText={e => handleOnChangeTextPassword(e)}
             />
           </ViewInput>
@@ -198,3 +192,5 @@ const IconTouch = styled.TouchableOpacity`
   margin: 0px 10px;
   border-radius: 8px;
 `;
+
+const ButtonBack = styled.TouchableOpacity``;

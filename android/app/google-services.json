@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "645043371139",
+    "firebase_url": "https://shoppingapp-c869d-default-rtdb.firebaseio.com",
+    "project_id": "shoppingapp-c869d",
+    "storage_bucket": "shoppingapp-c869d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645043371139:android:767055bc772187b5e0afb6",
+        "android_client_info": {
+          "package_name": "com.best_foody_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0AATkLjBv9TfsEHqZmKLsfcRz63bIxKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { Screens } from '@navigation/index';
-import { auth } from 'config/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInUserWithEmailAndPassword } from '@utils/api';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
 
@@ -20,13 +19,9 @@ export default function LoginScreen({ navigation }: any) {
     setValuePassword(value);
   };
 
-  const handleSubmitLogin = useCallback(async () => {
+  const handleSubmitLogin = useCallback(() => {
     if (valueEmail && valuePassword) {
-      try {
-        await signInWithEmailAndPassword(auth, valueEmail, valuePassword);
-      } catch (error) {
-        console.log('error:>>>>', error);
-      }
+      signInUserWithEmailAndPassword(valueEmail, valuePassword);
     }
   }, [valueEmail, valuePassword]);
 
@@ -59,6 +54,7 @@ export default function LoginScreen({ navigation }: any) {
             <InputField
               placeholder={'Password'}
               value={valuePassword}
+              secureTextEntry
               onChangeText={e => handleOnChangeTextPassword(e)}
             />
           </ViewInput>
