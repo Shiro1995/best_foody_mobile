@@ -1,8 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 
+import auth from '@react-native-firebase/auth';
 import { addToCart, incrementCount } from '@store/reducers/cardSlice';
-import { auth } from 'config/firebase';
-import { signOut } from 'firebase/auth';
 import {
   FlatList,
   Image,
@@ -29,7 +28,7 @@ const Home = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    setFilteredProducts([{}]);
+    setFilteredProducts([1, 2, 3]);
   }, [products, itemsCount]);
 
   const getItemsCount = () => {
@@ -46,10 +45,11 @@ const Home = () => {
     getItemsCount();
   };
 
-  const loadBooks = (book: any) => {
+  const loadBooks = ({ item, index }: { item: any; index: number }) => {
     return (
-      <TouchableOpacity
-        disabled
+      <ItemProduct
+        // disabled
+
         onPress={() => {
           // navigation.navigate('ProductDetails', {});
         }}>
@@ -75,7 +75,7 @@ const Home = () => {
             }}>
             <View style={{ overFlow: 'hidden' }}>
               <Text numberOfLines={1} style={styles.text}>
-                'title'
+                Book number {index + 1}
               </Text>
             </View>
             <Text style={{ color: '#666666' }}>Category : 3</Text>
@@ -84,7 +84,6 @@ const Home = () => {
               startingValue={Math.floor(parseInt(5))}
               ratingCount={5}
               imageSize={25}
-              ratingBackgroundColor="black"
             />
             <View style={{ flexDirection: 'row' }}>
               <TouchableOpacity
@@ -105,16 +104,19 @@ const Home = () => {
             </View>
           </View>
         </View>
-      </TouchableOpacity>
+      </ItemProduct>
     );
   };
   return (
     <Container>
-      <TextStyles>{'Home'}</TextStyles>
-      <TouchableOpacity onPress={handleLogout}>
-        <Text>{'Logout'}</Text>
-      </TouchableOpacity>
-      <FlatList data={filteredProducts} renderItem={loadBooks} />
+      <LogoutButton onPress={handleLogout}>
+        <TextLogout>{'Logout'}</TextLogout>
+      </LogoutButton>
+      <FlatList
+        data={filteredProducts}
+        renderItem={loadBooks}
+        ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+      />
     </Container>
   );
 };
@@ -125,10 +127,21 @@ const SafeAreaView = styled.SafeAreaView`
 
 const Container = styled.View`
   flex: 1;
-  align-items: center;
-  justify-content: center;
 `;
-const TextStyles = styled.Text``;
+const LogoutButton = styled.TouchableOpacity`
+  border-radius: 5px;
+  width: 100px;
+  align-self: flex-end;
+`;
+const TextLogout = styled.Text`
+  font-size: 15px;
+  text-align: center;
+  padding-vertical: 5px;
+  background-color: yellow;
+  color: red;
+`;
+
+const ItemProduct = styled.TouchableOpacity``;
 
 const styles = StyleSheet.create({
   main: {
@@ -139,17 +152,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     height: 500,
-    borderColor: 'black',
     borderWidth: 1,
     borderRadius: 5,
   },
   productMain: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     borderBottomColor: 'gray',
-    borderBottomWidth: 1,
     marginBottom: 5,
-    backgroundColor: 'red',
+    backgroundColor: 'white',
+    marginHorizontal: 20,
+    borderRadius: 10,
   },
   text: {
     color: 'black',
