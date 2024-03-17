@@ -37,8 +37,15 @@ target 'best_foody_mobile' do
       installer,
       # Set `mac_catalyst_enabled` to `true` in order to apply patches
       # necessary for Mac Catalyst builds
-      :mac_catalyst_enabled => false
+      :mac_catalyst_enabled => true
     )
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.4'
+      end
+    end
+    
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
